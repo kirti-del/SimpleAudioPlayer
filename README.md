@@ -1,33 +1,34 @@
 # SimpleAudioPlayer plays an audio file in pure java, here pure means, we are not going to use any external library. Java inbuilt libraries support only AIFC, AIFF, AU, SND and WAVE formats.
 There are 2 different interfaces which can be used for this purpose Clip and SourceDataLine. In this article, we will discuss playing audio file using Clip only and see the various methods of clip. We will cover following operations:
 
-Start.
+# Start.
 
-Pause.
+# Pause.
 
-Resume.
+# Resume.
 
-Restart.
+# Restart.
 
-Stop
+# Stop
 
-Jump to a specific position of playback.
+# Jump to a specific position of playback.
 
-View history
+# View history
 
 Play Audio using Clip
 
 Clip is a java interface available in javax.sound.sampled package and introduced in Java7.
 Following steps are to be followed to play a clip object.
-1.Create an object of AudioInputStream by using AudioSystem.getAudioInputStream(File file). AudioInputStream converts an audio file into stream.
 
-2.Get a clip reference object from AudioSystem.
+1. Create an object of AudioInputStream by using AudioSystem.getAudioInputStream(File file). AudioInputStream converts an audio file into stream.
 
-3.Stream an audio input stream from which audio data will be read into the clip by using open() method of Clip interface.
+2. Get a clip reference object from AudioSystem.
 
-4.Set the required properties to the clip like frame position, loop, microsecond position.
+3. Stream an audio input stream from which audio data will be read into the clip by using open() method of Clip interface.
 
-5.Start the clip
+4. Set the required properties to the clip like frame position, loop, microsecond position.
+
+5. Start the clip
 
 In above program we have used AudioInputStream which is a class in Java to read audio file as a stream. Like every stream of java if it is to be used again it has to be reset.
 
