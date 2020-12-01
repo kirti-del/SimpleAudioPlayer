@@ -1,4 +1,4 @@
-# SimpleAudioPlayerIn this article we will see, how can we play an audio file in pure java, here pure means, we are not going to use any external library. You can create your own music player by the help of this article. Java inbuilt libraries support only AIFC, AIFF, AU, SND and WAVE formats.
+# SimpleAudioPlayer plays an audio file in pure java, here pure means, we are not going to use any external library. Java inbuilt libraries support only AIFC, AIFF, AU, SND and WAVE formats.
 There are 2 different interfaces which can be used for this purpose Clip and SourceDataLine. In this article, we will discuss playing audio file using Clip only and see the various methods of clip. We will cover following operations:
 
 Start.
