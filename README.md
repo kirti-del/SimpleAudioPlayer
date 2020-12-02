@@ -1,19 +1,19 @@
 # SimpleAudioPlayer plays an audio file in pure java, here pure means, we are not going to use any external library. Java inbuilt libraries support only AIFC, AIFF, AU, SND and WAVE formats.
 There are 2 different interfaces which can be used for this purpose Clip and SourceDataLine. In this article, we will discuss playing audio file using Clip only and see the various methods of clip. We will cover following operations:
 
-# Start.
+* Start.
 
-# Pause.
+* Pause.
 
-# Resume.
+* Resume.
 
-# Restart.
+* Restart.
 
-# Stop
+* Stop
 
-# Jump to a specific position of playback.
+* Jump to a specific position of playback.
 
-# View history
+* View history
 
 Play Audio using Clip
 
