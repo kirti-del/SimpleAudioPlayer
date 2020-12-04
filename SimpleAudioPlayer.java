@@ -13,6 +13,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class SimpleAudioPlayer 
 { 
 
+	public static PriorityQueue<String> pq=new PriorityQueue<>();
 	// to store current position 
 	Long currentFrame; 
 	Clip clip; 
@@ -38,52 +39,93 @@ public class SimpleAudioPlayer
 		// open audioInputStream to the clip 
 		clip.open(audioInputStream); 
 		
-		clip.loop(Clip.LOOP_CONTINUOUSLY); 
+		clip.loop(Clip.LOOP_CONTINUOUSLY);
+		
 	} 
     public static Stack<String> history=new Stack<>();
     public static HashMap<String,String> map=new HashMap<>();
     public static String getChoice(){
         Scanner scn=new Scanner(System.in);
+		Scanner sc=new Scanner(System.in);
+		
         map.put("door","close_door.wav");
-        System.out.println("map: " + map);
-        System.out.println("choose your song");
-        String choice=scn.nextLine();
+        if(pq.size()!=0){
+			System.out.println("Wanna choose from your playlist?");
+			String ans=scn.next();
+			if(ans.equalsIgnoreCase("no"))
+			{
+				System.out.println("map: " + map);
+			}
+			else
+			{	
+				PriorityQueue<String> pq1=new PriorityQueue<>();
+				pq1.addAll(pq);
+				while(pq1.size()!=0){
+					System.out.println("#"+pq1.remove());
+				}
+			}
+		}
+		else{
+			System.out.println("map: " + map);
+		}
+        System.out.println("Choose your song");
+        String choice=sc.nextLine();
         return map.get(choice);
     }
-	
     public static void viewhistory(){
-        Stack hist1 = ( Stack ) history.clone();
-	while(hist1.size()!=0){
-    	System.out.println(hist1.pop());
+		Stack hist1 = ( Stack ) history.clone();
+		while(hist1.size()!=0){
+        System.out.println(hist1.pop());
+		}
 	}
-    }
+     
 	public static void main(String[] args) 
 	{ 
 		try
 		{ 
-			filePath = getChoice(); 
-            history.push(filePath);
-			SimpleAudioPlayer audioPlayer = 
-							new SimpleAudioPlayer(); 
-			
-			audioPlayer.play(); 
-			Scanner sc = new Scanner(System.in); 
-			
-			while (true) 
-			{ 
-				System.out.println("1. pause"); 
-				System.out.println("2. resume"); 
-				System.out.println("3. restart"); 
-                System.out.println("4. stop"); 
-				// System.out.println("5. stop"); 
-				System.out.println("5. Jump to specific time");
-                System.out.println("6. to view history"); 
-				int c = sc.nextInt(); 
-				audioPlayer.gotoChoice(c); 
-				if (c == 4) 
-				break; 
-			} 
-			sc.close(); 
+			boolean flag=true;
+			do{
+				filePath = getChoice(); 
+				history.push(filePath);
+				SimpleAudioPlayer audioPlayer = 
+								new SimpleAudioPlayer(); 
+				
+				audioPlayer.play(); 
+				System.out.println("Love this song? Create your playlist.....!!!");
+				System.out.println("To add this song to your favorites, go to option no. 7");
+				
+				Scanner sc = new Scanner(System.in); 
+				
+					while (true) 
+					{ 
+						System.out.println("1. pause"); 
+						System.out.println("2. resume"); 
+						System.out.println("3. restart"); 
+						System.out.println("4. stop"); 
+						// System.out.println("5. stop"); 
+						System.out.println("5. Jump to specific time");
+						System.out.println("6. View history"); 
+						System.out.println("7. Add to favorites"); 
+						// System.out.println("8. Go to songs"); 
+						
+						int c = sc.nextInt(); 
+						audioPlayer.gotoChoice(c); 
+						if (c == 4) 
+						break; 
+						// sc.close();
+					} 
+					Scanner scn=new Scanner(System.in);
+					System.out.println("Do you wanna continue??");
+					String ans=scn.nextLine();
+					// sc.close();
+					if(ans.equalsIgnoreCase("yes")){
+						flag=true;
+					}
+					else{
+						flag=false;
+					}
+			}while(flag);
+			 
 		} 
 		
 		catch (Exception ex) 
@@ -123,6 +165,11 @@ public class SimpleAudioPlayer
             case 6:
                 viewhistory();
                 break;
+			case 7:
+				pause();
+				AddTofavorites();
+				resumeAudio();
+				break;
 		} 
 	
 	} 
@@ -212,4 +259,10 @@ public class SimpleAudioPlayer
 		clip.loop(Clip.LOOP_CONTINUOUSLY); 
 	} 
 
+	// to create playlist
+	public void AddTofavorites()
+	{
+		pq.add(filePath);
+		System.out.println("Song added successfully..!");
+	}
 } 
