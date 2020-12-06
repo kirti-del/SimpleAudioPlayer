@@ -81,7 +81,7 @@ public class SimpleAudioPlayer
 				PriorityQueue<String> pq1=new PriorityQueue<>();
 				pq1.addAll(pq);
 				while(pq1.size()!=0){
-					System.out.println("#"+pq1.remove());
+					System.out.println("* "+pq1.remove());
 				}
 			}
 		}
@@ -95,8 +95,9 @@ public class SimpleAudioPlayer
     }
     public static void viewhistory(){
 		Stack hist1 = ( Stack ) history.clone();
+	    System.out.println("Recently Played...");
 		while(hist1.size()!=0){
-        System.out.println(hist1.pop());
+        System.out.println("* "+hist1.pop());
 		}
 	}
      
