@@ -48,13 +48,33 @@ public class SimpleAudioPlayer
         Scanner scn=new Scanner(System.in);
 		Scanner sc=new Scanner(System.in);
 		
-        map.put("door","close_door.wav");
+        map.put("Aate Jaate Khoobsurat Aawara","Aate Jaate Khoobsurat Aawara.wav");
+		map.put("Attention","Attention.wav");
+		map.put("Baby","Baby.wav");
+		map.put("Chanda hai tu mera","Chanda Hai Tu Mera.wav");
+		map.put("Dyanamite","Dyanamite.wav");
+		map.put("Girls Like You","Girls Like You.wav");
+		map.put("Jab Koi Baat Bigad Jaye","Jab Koi Baat Bigad Jaye.wav");
+		map.put("Memories","Memories.wav");
+		map.put("Mere Mehboob","Mere Mehboob Qayamat Hogi.wav");
+		map.put("Monster","Monster.wav");
+		map.put("Ruk Jana Nahin","Ruk Jana Nahin.wav");
+		map.put("Speechless","Speechless.wav");
+		map.put("Tu Kitni Achhi Hai","Tu Kitni Achhi Hai.wav");
+		map.put("Tujhse Naraz Nahin Zindagi","Tujhse Naraz Nahin Zindagi.wav");
+		map.put("Uptown Funk","Uptown Funk.wav");
+		map.put("We Don't Talk Anymore","We Don't Talk Anymore.wav");
+		map.put("What Makes You Beautiful","What Makes You Beautiful.wav");
+		map.put("Yeh Duniya Yeh Mehfil","Yeh Duniya Yeh Mehfil.wav");
+		map.put("Zindagi Ek Safar Hai Suhana","Zindagi Ek Safar Hai Suhana.wav");
+
         if(pq.size()!=0){
 			System.out.println("Wanna choose from your playlist?");
 			String ans=scn.next();
 			if(ans.equalsIgnoreCase("no"))
 			{
-				System.out.println("map: " + map);
+				for(String keys:map.keySet())
+					System.out.println("* "+keys);
 			}
 			else
 			{	
@@ -66,7 +86,8 @@ public class SimpleAudioPlayer
 			}
 		}
 		else{
-			System.out.println("map: " + map);
+			for(String keys:map.keySet())
+					System.out.println("* "+keys);
 		}
         System.out.println("Choose your song");
         String choice=sc.nextLine();
