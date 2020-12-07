@@ -42,6 +42,26 @@ public class SimpleAudioPlayer
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 		
 	} 
+    public static ArrayList<String>songsList=new ArrayList<>();
+	songsList.add(“Aate Jaate Khoobsurat Aawara”);
+	songsList.add(“Attention”);
+	songsList.add(“Baby”);
+	songsList.add(“Chanda hai tu mera”);
+	songsList.add(“Dyanamite”);
+	songsList.add(“Girls Like You”);
+	songsList.add(“Jab Koi Baat Bigad Jaye”);
+	songsList.add(“Memories”);
+	songsList.add(“Mere Mehboob”);
+	songsList.add(“Monster”);
+	songsList.add(“Ruk Jana Nahin”);
+	songsList.add(“Speechless”);
+	songsList.add(“Tu Kitni Achhi Hai”);
+	songsList.add(“Tujhse Naraz Nahin Zindagi”);
+	songsList.add(“Uptown Funk”);
+	songsList.add(“We Dont Talk Anymore”);
+	songsList.add(“What Makes You Beautiful”);
+	songsList.add(“Yeh Duniya Yeh Mehfil”);
+	songsList.add(“Zindagi Ek Safar Hai Suhana”);
     public static Stack<String> history=new Stack<>();
     public static HashMap<String,String> map=new HashMap<>();
     public static String getChoice(){
